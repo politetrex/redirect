@@ -1,1 +1,46 @@
-This page has no index
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>redirect (js needed at index)</title>
+    </head>
+    <body>
+        <noscript>This page needs JS Support</noscript>
+        <div id="rootjs"></div>
+        <script defer>
+            document.title="redirect (index)";
+            const root=document.getElementById("rootjs");
+            const p=document.createElement("h3");
+            p.innerHTML="Redirect - politetrex"
+            root.appendChild(p);
+            const inp=document.createElement("input");
+            inp.id="idinput";
+            inp.placeholder="Enter RedirectID...";
+            root.appendChild(inp);
+            const redirect_btn = document.createElement("button");
+            redirect_btn.onclick = function(){
+                const id = document.getElementById("idinput").value;
+                if(id) {
+                    window.location.href = id+"/index.htm";
+                }
+            }
+            redirect_btn.innerText="Go";
+            root.appendChild(redirect_btn);
+
+            // pinned IDs...
+            const br=document.createElement("br");
+            const br2=document.createElement("br");
+            const br3=document.createElement("br");
+            const p2=document.createElement("p");
+            p2.innerHTML="<b>Pinned IDs</b>"
+            root.appendChild(br);root.appendChild(br2);root.appendChild(br3);root.appendChild(p2);
+            const pinnedIDs={"71243310469": "Minecraft Shared World 1"};
+            Object.entries(pinnedIDs).forEach(([id, desc]) => {
+                const link = document.createElement("a");
+                link.href = "./" + id + "/index.htm";
+                link.textContent = `${desc} (${id})`;
+                link.style.display = "block";
+                root.appendChild(link);
+            });
+        </script>
+    </body>
+</html>
