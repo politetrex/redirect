@@ -33,7 +33,10 @@
             const p2=document.createElement("p");
             p2.innerHTML="<b>Pinned IDs</b>"
             root.appendChild(br);root.appendChild(br2);root.appendChild(br3);root.appendChild(p2);
-            const pinnedIDs={"71243310469": "Minecraft Shared World 1"};
+            const pinnedIDs={
+                "71243310469": "Minecraft Shared World 1",
+                "24786928274": "Minecraft Shared World 2"
+            };
             Object.entries(pinnedIDs).forEach(([id, desc]) => {
                 const link = document.createElement("a");
                 link.href = "./" + id + "/index.htm";
